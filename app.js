@@ -1,5 +1,17 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+var passport = require('passport');
+
+passportConfig = require('./config/passport');
+
+var indexController = require('./Controllers/indexController.js');
+var authenticationController = require('./Controllers/authenticationController');
+
+mongoose.connect('mongodb://localhost/betterPets');
 
 var app = express();
 app.set('view engine', 'jade');
@@ -7,9 +19,19 @@ app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser());
 
-app.get('/', function(req, res) {
-	res.render('index');
-});
+app.use(cookieParser());
+app.use(flash());
+app.use(session({secret: 'secret'}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.get('/', indexController.index);
+
+app.post('/auth/login', authenticationController.processLogin);
+app.post('/auth/signup', authenticationController.processSignup);
+app.get('/auth/logout', authenticationController.logout);
+
+// app.use(passportConfig.enusreAuthenticated);
 
 app.get('/owner', function(req, res){
 	res.render('owner');

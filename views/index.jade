@@ -21,11 +21,15 @@ block content
 		.content.col-xs-12
 			div.first.col-xs-12.jumbotron
 				p Pet Owner Dashboard Content Section
+				img(src="http://placehold.it/350x150")
 			div.second.col-xs-12.jumbotron
+				img(src="http://placehold.it/350x150")
 				p  Vet Interaction Section
 			div.third.col-xs-12.jumbotron
 				p Pet Sitter Content Section
+				img(src="http://placehold.it/350x150")
 			div.fourth.col-xs-12.jumbotron
+				img(src="http://placehold.it/350x150")
 				p Fourth Content Section
 		footer.navbar-fixed-bottom
 			.container-fluid
@@ -38,9 +42,14 @@ block content
 						button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
 						h4.modal-title#signinModalLabel Sign In
 					.modal-body
-						form
+						form.form-signin(method="post" action="/auth/login")
+							h2.form-signin-heading Please Login
+							input.form-control(type="text" name="username" placeholder="User Name" required="" autofocus="")
+							input.form-control(type="password" name="password" placeholder="Password" required="")
+							label.checkbox Remember me
+								input#rememberMe(type="checkbox" value="remember-me" name="remember-me")
+								button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
 					.modal-footer
-						p Footer info or buttons
 		.modal.fade#signupModal(tabindex="-1" role="dialog" aria-labeledby="signupModalLabel" aria-hidden="true")
 			.modal-dialog
 				.modal-content
@@ -48,6 +57,12 @@ block content
 						button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
 						h4.modal-title#signupModalLabel Sign Up
 					.modal-body
-						form
+						form.form-signin(method="post" action="/auth/signup")
+							h3.form-signin-heading Please provide the following information to establish your account
+							input.form-control(type="text" name="firstName" placeholder="First Name" required="" autofocus="")
+							input.form-control(type="text" name="lastName" placeholder="Last Name" required="")
+							input.form-control(type="text" name="username" placeholder="User Name" required="")
+							input.form-control(type="text" name="email" placeholder="Email" required="")
+
+							button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
 					.modal-footer
-						p Footer info or buttons
