@@ -1,4 +1,53 @@
 extends layout
 
 block content
-	h1 Hello Boulder!
+	.container
+		nav.navbar.navbar-default(role="navigation")
+			.container-fluid
+				.navbar-header
+					button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+						span.sr-only Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href="#") Site Title
+				#bs-example-navbar-collapse-1.collapse.navbar-collapse
+					ul.nav.navbar-nav.navbar-right
+						li.active
+							button.btn.btn-default(data-toggle="modal" data-target="#signinModal") Sign-In
+						li.active
+							button.btn.btn-default(data-toggle="modal" data-target="#signupModal") Sign-Up
+							
+		.content.col-xs-12
+			div.first.col-xs-12.jumbotron
+				p Pet Owner Dashboard Content Section
+			div.second.col-xs-12.jumbotron
+				p  Vet Interaction Section
+			div.third.col-xs-12.jumbotron
+				p Pet Sitter Content Section
+			div.fourth.col-xs-12.jumbotron
+				p Fourth Content Section
+		footer.navbar-fixed-bottom
+			.container-fluid
+				p Footer Section
+
+		.modal.fade#signinModal(tabindex="-1" role="dialog" aria-labeledby="signinModalLabel" aria-hidden="true")
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+						h4.modal-title#signinModalLabel Sign In
+					.modal-body
+						form
+					.modal-footer
+						p Footer info or buttons
+		.modal.fade#signupModal(tabindex="-1" role="dialog" aria-labeledby="signupModalLabel" aria-hidden="true")
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+						h4.modal-title#signupModalLabel Sign Up
+					.modal-body
+						form
+					.modal-footer
+						p Footer info or buttons

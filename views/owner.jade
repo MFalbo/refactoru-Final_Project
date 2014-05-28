@@ -1,0 +1,29 @@
+extends layout
+
+block content
+	h1 Pet Owner Primary View
+
+	.owner-info.col-xs-12
+		img.avatar.img-responsive.col-xs-3(src="http://placehold.it/350x350" alt="Avatar Image")
+		.col-xs-9
+			ul
+				li Name
+				li Address
+				li Email
+				li Phone
+
+	.col-xs-3
+		ul.nav.nav-tabs.nav-justified
+			li.active
+				a(href="#pet1" data-toggle="tab") Pet 1
+			li
+				a(href="#pet2" data-toggle="tab") Pet 2
+			li
+				a(href="#pet3" data-toggle="tab") Pet 3
+		.tab-content
+			.tab-pane.fade.in.active#pet1
+				p Pet 1 Info
+			.tab-pane.fade#pet2
+				p Pet 2 Info
+			.tab-pane.fade#pet3
+				p Pet 3 Info

@@ -11,6 +11,10 @@ app.get('/', function(req, res) {
 	res.render('index');
 });
 
+app.get('/owner', function(req, res){
+	res.render('owner');
+});
+
 var server = app.listen(3106, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
