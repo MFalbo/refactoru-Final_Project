@@ -30,19 +30,38 @@ app.get('/', indexController.index);
 app.post('/auth/login', authenticationController.processLogin);
 app.post('/auth/signup', authenticationController.processSignup);
 app.get('/auth/logout', authenticationController.logout);
+app.get('/auth/error', authenticationController.error);
 
-// app.use(passportConfig.enusreAuthenticated);
+app.use(passportConfig.ensureAuthenticated);
 
+// app.get('/owner', function(req, res){          Created base owner route to test ensureAuthenticated function
+// 	res.render('owner', {user: req.user});
+// });
 app.get('/owner/:userId', function(req, res){
-	res.render('owner', {user: req.user});
+	if(req.user.role === 'owner'){
+		res.render('owner', {user: req.user});	
+	}
+	else{
+		res.redirect('/');
+	}
 });
 
 app.get('/sitter/:userId', function(req,res){
-	res.render('sitter', {user: req.user});
+	if(req.user.role === 'sitter'){
+		res.render('sitter', {user: req.user});
+	}
+	else{
+		res.redirect('/');
+	}
 });
 
 app.get('/veterinarian/:userId', function(req,res){
-	res.render('vet', {user: req.user});
+	if(req.user.role === 'veterinarian'){
+		res.render('vet', {user: req.user});	
+	}
+	else{
+		res.redirect('/');
+	}
 });
 
 var server = app.listen(3106, function() {

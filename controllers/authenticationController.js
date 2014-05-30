@@ -131,7 +131,7 @@ var authenticationController = {
         // Flash the message and redirect to the login view to
         // show it.
         req.flash('error', errorMessage);
-        return res.redirect('/auth/login');
+        return res.redirect('/');
       }
 
       // If we make it this far, we are ready to log the user in.
@@ -146,7 +146,11 @@ var authenticationController = {
     req.logout();
 
     // Redirect back to the login page
-    res.redirect('/auth/login');
+    res.redirect('/');
+  },
+
+  error: function(req, res){
+    res.render('error');
   }
 };
 
