@@ -33,8 +33,8 @@ app.get('/auth/logout', authenticationController.logout);
 
 // app.use(passportConfig.enusreAuthenticated);
 
-app.get('/owner', function(req, res){
-	res.render('owner');
+app.get('/owner/:userId', function(req, res){
+	res.render('owner', {user: req.user});
 });
 
 var server = app.listen(3106, function() {

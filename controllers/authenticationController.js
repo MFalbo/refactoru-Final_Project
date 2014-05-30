@@ -24,7 +24,7 @@ var performLogin = function(req, res, next, user){
     // console.log('req.user', req.user); user and req.user are the same, at least here
     // Otherwise, send the user to the homepage.
     if(user.role === "owner"){
-      res.redirect('/owner');
+      res.redirect('/owner/' + user.username);
     }
     else{
       return res.redirect('/');
