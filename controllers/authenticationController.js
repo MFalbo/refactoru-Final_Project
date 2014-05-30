@@ -26,6 +26,12 @@ var performLogin = function(req, res, next, user){
     if(user.role === "owner"){
       res.redirect('/owner/' + user.username);
     }
+    else if(user.role === "sitter"){
+      res.redirect('/sitter/' + user.username);
+    }
+    else if(user.role === "veterinarian"){
+      res.redirect('/veterinarian/' + user.username);
+    }
     else{
       return res.redirect('/');
     }
