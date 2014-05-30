@@ -20,9 +20,15 @@ var performLogin = function(req, res, next, user){
   req.login(user, function(err){
     // If there was an error, allow execution to move to the next middleware
     if(err) return next(err);
-
+    // console.log('user', user);
+    // console.log('req.user', req.user); user and req.user are the same, at least here
     // Otherwise, send the user to the homepage.
-    return res.redirect('/');
+    if(user.role === "owner"){
+      res.redirect('/owner');
+    }
+    else{
+      return res.redirect('/');
+    }
   });
 };
 
@@ -89,9 +95,12 @@ var authenticationController = {
     // It is safer to send as post, however, because the actual data won't
     // show up in browser history.
     var user = new User({
+      firstName: req.param('firstName'),
+      lastName: req.param('lastName'),
       username: req.param('username'),
       password: req.param('password'),
-      email: req.param('email')
+      email: req.param('email'),
+      role: req.param('role')
     });
 
     // Now that the user is created, we'll attempt to save them to the
