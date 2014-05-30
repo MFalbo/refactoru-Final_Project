@@ -87,6 +87,6 @@ module.exports = {
     }
 
     // If not, redirect to login
-    res.redirect('/auth/error');
+    res.redirect('/access/error');
   }
 };

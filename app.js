@@ -30,10 +30,19 @@ app.get('/', indexController.index);
 app.post('/auth/login', authenticationController.processLogin);
 app.post('/auth/signup', authenticationController.processSignup);
 app.get('/auth/logout', authenticationController.logout);
-app.get('/auth/error', authenticationController.error);
 
+// Access Error/Denial Routes
+app.get('/access/error', function(req, res){
+	res.render('error');
+});
+app.get('/access/denied', function(req, res){
+	res.render('denied');
+})
+
+// All Routes after this line require a user to be logged in
 app.use(passportConfig.ensureAuthenticated);
 
+// Owner Role Routes
 // app.get('/owner', function(req, res){          Created base owner route to test ensureAuthenticated function
 // 	res.render('owner', {user: req.user});
 // });
@@ -42,25 +51,27 @@ app.get('/owner/:userId', function(req, res){
 		res.render('owner', {user: req.user});	
 	}
 	else{
-		res.redirect('/');
+		res.redirect('/access/denied');
 	}
 });
 
+// Sitter Role Routes
 app.get('/sitter/:userId', function(req,res){
 	if(req.user.role === 'sitter'){
 		res.render('sitter', {user: req.user});
 	}
 	else{
-		res.redirect('/');
+		res.redirect('/access/denied');
 	}
 });
 
+// Vet Role Routes
 app.get('/veterinarian/:userId', function(req,res){
 	if(req.user.role === 'veterinarian'){
 		res.render('vet', {user: req.user});	
 	}
 	else{
-		res.redirect('/');
+		res.redirect('/access/denied');
 	}
 });
 

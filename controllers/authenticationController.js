@@ -147,10 +147,6 @@ var authenticationController = {
 
     // Redirect back to the login page
     res.redirect('/');
-  },
-
-  error: function(req, res){
-    res.render('error');
   }
 };
 
