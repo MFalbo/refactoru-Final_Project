@@ -1,26 +1,6 @@
 extends layout
 
-block content
-	.container
-		nav.navbar.navbar-default(role="navigation")
-			.container-fluid
-				.navbar-header
-					button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
-						span.sr-only Toggle navigation
-						span.icon-bar
-						span.icon-bar
-						span.icon-bar
-					a.navbar-brand(href="#") Site Title
-				#bs-example-navbar-collapse-1.collapse.navbar-collapse
-					ul.nav.navbar-nav.navbar-right
-						li.active
-							button.btn.btn-default(data-toggle="modal" data-target="#signinModal") Sign-In
-						li.active
-							button.btn.btn-default(data-toggle="modal" data-target="#signupModal") Sign-Up
-						li.active
-							button.btn.btn-default
-								a(href="/auth/logout") Logout
-							
+block content							
 		.content.col-xs-12
 			div.first.col-xs-12.jumbotron
 				p Pet Owner Dashboard Content Section
@@ -34,43 +14,5 @@ block content
 			div.fourth.col-xs-12.jumbotron
 				img(src="http://placehold.it/350x150")
 				p Fourth Content Section
-		footer.navbar-fixed-bottom
-			.container-fluid
-				p Footer Section
 
-		.modal.fade#signinModal(tabindex="-1" role="dialog" aria-labeledby="signinModalLabel" aria-hidden="true")
-			.modal-dialog
-				.modal-content
-					.modal-header
-						button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
-						h4.modal-title#signinModalLabel Sign In
-					.modal-body
-						form.form-signin(method="post" action="/auth/login")
-							h2.form-signin-heading Please Login
-							input.form-control(type="text" name="username" placeholder="User Name" required="" autofocus="")
-							input.form-control(type="password" name="password" placeholder="Password" required="")
-							label.checkbox Remember me
-								input#rememberMe(type="checkbox" value="remember-me" name="remember-me")
-								button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
-					.modal-footer
-		.modal.fade#signupModal(tabindex="-1" role="dialog" aria-labeledby="signupModalLabel" aria-hidden="true")
-			.modal-dialog
-				.modal-content
-					.modal-header
-						button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
-						h4.modal-title#signupModalLabel Sign Up
-					.modal-body
-						form.form-signin(method="post" action="/auth/signup")
-							h3.form-signin-heading Please provide the following information to establish your account
-							input.form-control(type="text" name="firstName" placeholder="First Name" required="" autofocus="")
-							input.form-control(type="text" name="lastName" placeholder="Last Name" required="")
-							input.form-control(type="text" name="username" placeholder="User Name" required="")
-							input.form-control(type="text" name="email" placeholder="Email" required="")
-							select.form-control(name="role" required="")
-								option(value="owner") Owner
-								option(value="sitter") Pet Sitter
-								option(value="veterinarian") Veterinarian
-							input.form-control(type="password" name="password" placeholder="Password" required="")
-
-							button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
-					.modal-footer
+		

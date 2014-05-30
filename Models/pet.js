@@ -4,6 +4,8 @@ var bcrypt = require('bcrypt');
 var petSchema = mongoose.Schema({
 	name: String,
 	age: Number,
+	owner: String,
+	species: String,
 	breed: String,
 	rfidChip: String,
 	rabiesTag: String,

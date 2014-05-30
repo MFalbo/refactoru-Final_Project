@@ -12,19 +12,59 @@ block content
 				li Address
 				li Email: #{user.email}
 				li Phone
+				li
+					button.btn.btn-default(data-toggle="modal" data-target="#createpetModal") New Pet
 
 	.col-xs-3
 		ul.nav.nav-tabs.nav-justified
-			li.active
-				a(href="#pet1" data-toggle="tab") Pet 1
-			li
-				a(href="#pet2" data-toggle="tab") Pet 2
-			li
-				a(href="#pet3" data-toggle="tab") Pet 3
-		.tab-content
-			.tab-pane.fade.in.active#pet1
-				p Pet 1 Info
-			.tab-pane.fade#pet2
-				p Pet 2 Info
-			.tab-pane.fade#pet3
-				p Pet 3 Info
+			for pet, index in user.pets
+				if index === 0
+					li.active
+						a(href="#pet" + index data-toggle="tab") #{pet.name}
+				else
+					li
+						a(href="#pet" + index data-toggle="tab") #{pet.name}
+
+				//- li
+				//- 	a(href="#pet2" data-toggle="tab") Pet 2
+				//- li
+				//- 	a(href="#pet3" data-toggle="tab") Pet 3
+			.tab-content
+				for pet, index in user.pets	
+					if index === 0
+						.tab-pane.fade.in.active(id="pet" + index)
+							h2= pet.name
+							p Age: #{pet.age}
+							p Breed: #{pet.breed}
+					else
+						.tab-pane.fade(id="pet" + index)
+							h2= pet.name
+							p Age: #{pet.age}
+							p Breed: #{pet.breed}
+				//- .tab-pane.fade#pet2
+				//- 	p Pet 2 Info
+				//- .tab-pane.fade#pet3
+				//- 	p Pet 3 Info
+
+	.modal.fade#createpetModal(tabindex="-1" role="dialog" aria-labeledby="createpetModalLabel" aria-hidden="true")
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+						h4.modal-title#createpetModalLabel Add New Pet
+					.modal-body
+						form#createPet(method="post" action="/pet/create")
+							h3 Please provide the following information about your pet
+							input.form-control(type="text" name="name" placeholder="Pet's Name" required="" autofocus="")
+							input.form-control(type="number" name="age" placeholder="Age")
+							select.form-control(name="species" required="")
+								option(value="dog") Dog
+								option(value="cat") Cat
+								option(value="bird") Bird
+								option(value="fish") Fish
+								option(value="other") Other
+							input.form-control(type="text" name="breed" placeholder="Breed" required="")
+							input.form-control(type="text" name="rfid" placeholder="RFID Chip #")
+							input.form-control(type="text" name="rabies" placeholder="Rabies Tag #")
+							button#addPet.btn.btn-lg.btn-primary.btn-block(type="submit") Add Pet
+					.modal-footer

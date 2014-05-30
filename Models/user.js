@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 
 var Pet = require('./pet');
+var ObjectId = Pet._id;
 
 /**
  * Create a schema (blueprint) for all users in the database.
@@ -47,7 +48,7 @@ var userSchema = mongoose.Schema({
 		unique: false
 	},
 	pets:{
-		type: [Pet],
+		type: [ObjectId],
 		required: false,
 		unique: false
 	},

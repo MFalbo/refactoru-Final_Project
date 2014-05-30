@@ -1,33 +1,56 @@
+/*body{
+	background: cadetblue url("http://i492.photobucket.com/albums/rr289/btix/sky_blue_background.png") no-repeat center center fixed;
+	background-size: cover;
+	padding-bottom: 70px;
+}*/
+
 body{
-	background: url("http://i492.photobucket.com/albums/rr289/btix/sky_blue_background.png");
-	background-size: 100% 100%;
+	background: cadetblue url("http://www.photographybyrichelle.net/wp-content/uploads/2013/07/pet-background1.jpg") no-repeat center center fixed;
+	background-size: cover;
 	padding-bottom: 70px;
 }
-/*.header{
-	background-color: cadetblue;
-	border-radius: 5px;
-}*/
-.content div{
-	border-radius: 10px
+
+.navbar-default{
+	border-radius: 0;
 }
+
+/*.container{
+	color: #EEE;
+}*/
+
+.content div{
+	border-radius: 10px;
+	box-shadow: 0px 0px 15px #888;
+}
+
 .first{
 	background-color: #E5FEFE;
 }
+
 .first *{
 	float: right;
 }
+
 .second{
 	background-color: #CBFDFE;
 }
+
 .third{
 	background-color: #5F9EA0;
 }
+
 .third *{
 	float: right;
 }
+
 .fourth{
 	background-color: #426E6F;
 }
+
 .footer{
 	background-color: #A1A1A1;
+}
+
+.tab-pane{
+	color: #FFF;
 }

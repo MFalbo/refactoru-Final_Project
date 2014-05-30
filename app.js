@@ -11,6 +11,9 @@ passportConfig = require('./config/passport');
 var indexController = require('./Controllers/indexController.js');
 var authenticationController = require('./Controllers/authenticationController');
 
+var Pet = require('./Models/pet');
+var User = require('./Models/user');
+
 mongoose.connect('mongodb://localhost/betterPets');
 
 var app = express();
@@ -31,6 +34,34 @@ app.post('/auth/login', authenticationController.processLogin);
 app.post('/auth/signup', authenticationController.processSignup);
 app.get('/auth/logout', authenticationController.logout);
 
+app.post('/pet/create', function(req, res){
+	// export to pet controller and include pet model
+	var pet = new Pet({
+		name: req.body.name,
+		age: req.body.age,
+		species: req.body.species,
+		breed: req.body.breed,
+		rfidChip: req.body.rfid,
+		fridTag: req.body.rabies,
+		owner: req.user.username
+	});
+
+	pet.save(function(err, pet){
+		console.log(pet);
+		if(err) return console.error(err);
+
+		User.update({_id : req.user._id} , {$push: { pets : pet._id}}, function(err, user){
+			console.log('user id',req.user._id);
+			console.log('pet id', pet._id);
+			res.redirect('/owner/req.user.username');
+		});
+	});
+
+	console.log('req.user', req.user);
+	console.log('req.body', req.body);
+	// res.send(req.body);
+});
+
 // Access Error/Denial Routes
 app.get('/access/error', function(req, res){
 	res.render('error');
@@ -48,7 +79,11 @@ app.use(passportConfig.ensureAuthenticated);
 // });
 app.get('/owner/:userId', function(req, res){
 	if(req.user.role === 'owner'){
-		res.render('owner', {user: req.user});	
+		User.findOne({_id : req.user._id}).populate('pets', null, 'pet').exec(function(err, user){
+			console.log('populated user', user.pets);
+			res.render('owner', {user: user});
+		})
+			
 	}
 	else{
 		res.redirect('/access/denied');
