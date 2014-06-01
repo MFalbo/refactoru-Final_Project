@@ -2,3 +2,10 @@ extends layout
 
 block content
 	h1 Veterinarian Page
+
+	.search.xs-6.pull-right
+		form#searchForm.navbar-form.navbar-left(role="search")
+			.form-group
+				input#searchBox.form-control(type="text" placeholder="Enter Pet's Name")
+				button#searchBtn.btn.btn-default(type="submit") Search
+		.search-results.xs-12

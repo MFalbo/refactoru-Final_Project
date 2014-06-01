@@ -19,6 +19,7 @@ html(lang='en')
 						strong Better Pets | 
 						small Have better pets by being better for your pet
 				#bs-example-navbar-collapse-1.collapse.navbar-collapse
+					block search
 					ul.nav.navbar-nav.navbar-right
 						li.active
 							button.btn.btn-default(data-toggle="modal" data-target="#signinModal") Sign-In
@@ -42,7 +43,7 @@ html(lang='en')
 					.modal-body
 						form.form-signin(method="post" action="/auth/login")
 							h2.form-signin-heading Please Login
-							input.form-control(type="text" name="username" placeholder="User Name" required="" autofocus="")
+							input.form-control(type="text" name="username" placeholder="User Name" required="" autofocus="autofocus")
 							input.form-control(type="password" name="password" placeholder="Password" required="")
 							label.checkbox Remember me
 								input#rememberMe(type="checkbox" value="remember-me" name="remember-me")
@@ -57,7 +58,7 @@ html(lang='en')
 					.modal-body
 						form.form-signin(method="post" action="/auth/signup")
 							h3.form-signin-heading Please provide the following information to establish your account
-							input.form-control(type="text" name="firstName" placeholder="First Name" required="" autofocus="")
+							input.form-control(type="text" name="firstName" placeholder="First Name" required="" autofocus="autofocus")
 							input.form-control(type="text" name="lastName" placeholder="Last Name" required="")
 							input.form-control(type="text" name="username" placeholder="User Name" required="")
 							input.form-control(type="text" name="email" placeholder="Email" required="")

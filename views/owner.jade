@@ -1,5 +1,11 @@
 extends layout
 
+block search
+	form.navbar-form.navbar-left(role="search")
+		.form-group
+			input.form-control(type="text" placeholder="Search")
+			button.btn.btn-default(type="submit") Submit
+			
 block content
 	h1 Pet Owner Primary View
 

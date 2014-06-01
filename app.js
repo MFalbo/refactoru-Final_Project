@@ -42,8 +42,11 @@ app.post('/pet/create', function(req, res){
 		species: req.body.species,
 		breed: req.body.breed,
 		rfidChip: req.body.rfid,
-		fridTag: req.body.rabies,
-		owner: req.user.username
+		rabiesTag: req.body.rabies,
+		owner: {
+			firstName: req.user.firstName,
+			lastName: req.user.lastName
+		}
 	});
 
 	pet.save(function(err, pet){
@@ -53,7 +56,7 @@ app.post('/pet/create', function(req, res){
 		User.update({_id : req.user._id} , {$push: { pets : pet._id}}, function(err, user){
 			console.log('user id',req.user._id);
 			console.log('pet id', pet._id);
-			res.redirect('/owner/req.user.username');
+			res.redirect('/owner/' + req.user.username);
 		});
 	});
 
@@ -108,6 +111,14 @@ app.get('/veterinarian/:userId', function(req,res){
 	else{
 		res.redirect('/access/denied');
 	}
+});
+
+app.post('/veterinarian/search', function(req, res){
+	console.log('AJAX Request Body', req.body);
+	Pet.find({name : req.body.petName}, function(err, pet){
+		// console.log(pet);
+		res.send(pet);
+	});
 });
 
 var server = app.listen(3106, function() {
