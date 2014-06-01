@@ -7,12 +7,12 @@ block search
 			button.btn.btn-default(type="submit") Submit
 			
 block content
-	h1 Pet Owner Primary View
 
 	.owner-info.col-xs-12
-		img.avatar.img-responsive.col-xs-3(src="http://placehold.it/350x350" alt="Avatar Image")
+		h1 #{user.firstName} #{user.lastName}
+		img.avatar.img-responsive.img-thumbnail.col-xs-3(src="http://placehold.it/350x350" alt="Avatar Image")
 		.col-xs-9
-			ul
+			ul.list-unstyled
 				li Name: 
 					strong #{user.firstName} #{user.lastName}
 				li Address
@@ -21,7 +21,7 @@ block content
 				li
 					button.btn.btn-default(data-toggle="modal" data-target="#createpetModal") New Pet
 
-	.col-xs-3
+	.col-xs-12
 		ul.nav.nav-tabs.nav-justified
 			for pet, index in user.pets
 				if index === 0
@@ -31,26 +31,36 @@ block content
 					li
 						a(href="#pet" + index data-toggle="tab") #{pet.name}
 
-				//- li
-				//- 	a(href="#pet2" data-toggle="tab") Pet 2
-				//- li
-				//- 	a(href="#pet3" data-toggle="tab") Pet 3
 			.tab-content
 				for pet, index in user.pets	
 					if index === 0
 						.tab-pane.fade.in.active(id="pet" + index)
-							h2= pet.name
-							p Age: #{pet.age}
-							p Breed: #{pet.breed}
+							.col-xs-12
+								ul.nav.nav-pills
+									li.active
+										a(href="#info") Info
+									li.dropdown
+										a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
+											span.caret
+										ul.dropdown-menu
+											li
+												a(href="#medical") History
+											li
+												a(href="#") Vaccination Records
+											li
+												a(href="#") Symptom Log
+								.tab-content
+									.tab-pane.fade.in.active#info
+										h2= pet.name
+										p Age: #{pet.age}
+										p Breed: #{pet.breed}
+									.tab-pane.fade#medical
+										p This would be medical history info
 					else
 						.tab-pane.fade(id="pet" + index)
 							h2= pet.name
 							p Age: #{pet.age}
 							p Breed: #{pet.breed}
-				//- .tab-pane.fade#pet2
-				//- 	p Pet 2 Info
-				//- .tab-pane.fade#pet3
-				//- 	p Pet 3 Info
 
 	.modal.fade#createpetModal(tabindex="-1" role="dialog" aria-labeledby="createpetModalLabel" aria-hidden="true")
 			.modal-dialog
