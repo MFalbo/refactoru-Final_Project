@@ -13,7 +13,7 @@ module.exports = {
 	},
 	search: function(req, res){
 		console.log('AJAX Request Body', req.body);
-		Pet.find({name : req.body.petName}, function(err, pet){
+		Pet.find({name : req.body.petName, 'owner.lastName': req.body.ownerName}, function(err, pet){
 			// console.log(pet);
 			res.send(pet);
 		});

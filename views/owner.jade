@@ -15,9 +15,9 @@ block content
 			ul.list-unstyled
 				li Name: 
 					strong #{user.firstName} #{user.lastName}
-				li Address
+				li Address:
 				li Email: #{user.email}
-				li Phone
+				li Phone:
 				li
 					button.btn.btn-default(data-toggle="modal" data-target="#createpetModal") New Pet
 
@@ -35,10 +35,10 @@ block content
 			for pet, index in user.pets	
 				if index === 0
 					.tab-pane.fade.in.active(id="pet" + index)
-						.col-xs-12.tabbable
+						.col-xs-12.tabbable.information
 							ul.nav.nav-pills
 								li.active
-									a(href="#info" data-toggle="tab") Info
+									a(href="#info" + index data-toggle="tab") Info
 								li.dropdown
 									a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
 										span.caret
@@ -50,28 +50,38 @@ block content
 										li
 											a(href="#symptom-log" + index data-toggle="tab") Symptom Log
 							.tab-content
-								.tab-pane.fade.in.active#info(data-id= pet._id)
-									h2= pet.name
-									p Age: #{pet.age}
-									p Breed: #{pet.breed}
+								.tab-pane.fade.in.active.pet-id(id="info" + index data-id= pet._id)
+									.col-xs-6
+										.data
+											h2= pet.name
+											p Age: #{pet.age}
+											p Breed: #{pet.breed}
+										.considerations
+											h2 Special Considerations
+									.col-xs-6.schedule-container
+										h2 Daily Schedule
+										button.add-sched-item.btn.btn-default Add Item
+										.schedule
+											ul
+												li Time : Activity
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
 									p This would be Vaccination Records for pet #{index}
 								.tab-pane.fade(id="symptom-log" + index)
-									.symptom-log.col-xs-6
+									.symptom-log
 										h2 Symptom Log
-										form.symptom-form
+										form.symptom-form.col-xs-6
 											input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
 											textarea.form-control(row="4")
 											button#symptomBtn.btn.btn-default(type="submit") Submit
-										.log-display
+										.log-display.col-xs-6
 				else
 					.tab-pane.fade(id="pet" + index)
-						.col-xs-12.tabbable
+						.col-xs-12.tabbable.information
 							ul.nav.nav-pills
 								li.active
-									a(href="#info" data-toggle="tab") Info
+									a(href="#info" + index data-toggle="tab") Info
 								li.dropdown
 									a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
 										span.caret
@@ -83,22 +93,32 @@ block content
 										li
 											a(href="#symptom-log" + index data-toggle="tab") Symptom Log
 							.tab-content
-								.tab-pane.fade.in.active#info(data-id= pet._id)
-									h2= pet.name
-									p Age: #{pet.age}
-									p Breed: #{pet.breed}
+								.tab-pane.fade.in.active.pet-id(id="info" + index data-id= pet._id)
+									.col-xs-6
+										.data
+											h2= pet.name
+											p Age: #{pet.age}
+											p Breed: #{pet.breed}
+										.considerations
+											h2 Special Considerations
+									.col-xs-6.schedule-container
+										h2 Daily Schedule
+										button.add-sched-item.btn.btn-default Add Item
+										.schedule
+											ul
+												li Time : Activity
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
 									p This would be Vaccination Records for pet #{index}
 								.tab-pane.fade(id="symptom-log" + index)
-									.symptom-log.col-xs-6
+									.symptom-log
 										h2 Symptom Log
-										form.symptom-form
+										form.symptom-form.col-xs-6
 											input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
 											textarea.form-control(row="4")
 											button#symptomBtn.btn.btn-default(type="submit") Submit
-										.log-display
+										.log-display.col-xs-6
 
 	.modal.fade#createpetModal(tabindex="-1" role="dialog" aria-labeledby="createpetModalLabel" aria-hidden="true")
 			.modal-dialog
