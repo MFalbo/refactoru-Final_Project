@@ -21,7 +21,7 @@ block content
 				li
 					button.btn.btn-default(data-toggle="modal" data-target="#createpetModal") New Pet
 
-	.col-xs-12
+	.col-xs-12#pet-container
 		ul.nav.nav-tabs.nav-justified
 			for pet, index in user.pets
 				if index === 0
@@ -50,7 +50,7 @@ block content
 											li
 												a(href="#") Symptom Log
 								.tab-content
-									.tab-pane.fade.in.active#info
+									.tab-pane.fade.in.active#info(data-id= pet._id)
 										h2= pet.name
 										p Age: #{pet.age}
 										p Breed: #{pet.breed}
@@ -58,9 +58,32 @@ block content
 										p This would be medical history info
 					else
 						.tab-pane.fade(id="pet" + index)
-							h2= pet.name
-							p Age: #{pet.age}
-							p Breed: #{pet.breed}
+							.col-xs-12
+								ul.nav.nav-pills
+									li.active
+										a(href="#info") Info
+									li.dropdown
+										a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
+											span.caret
+										ul.dropdown-menu
+											li
+												a(href="#medical") History
+											li
+												a(href="#") Vaccination Records
+											li
+												a(href="#") Symptom Log
+								.tab-content
+									.tab-pane.fade.in.active#info(data-id= pet._id)
+										h2= pet.name
+										p Age: #{pet.age}
+										p Breed: #{pet.breed}
+									.tab-pane.fade#medical
+										p This would be medical history info
+			.symptom-log
+				form.symptom-form
+					input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
+					textarea.form-control(row="4")
+					button#symptomBtn.btn.btn-default(type="submit") Submit
 
 	.modal.fade#createpetModal(tabindex="-1" role="dialog" aria-labeledby="createpetModalLabel" aria-hidden="true")
 			.modal-dialog

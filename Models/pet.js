@@ -12,7 +12,8 @@ var petSchema = mongoose.Schema({
 	certifications: [String],
 	avatar: String,
 	schedule: Object,
-	considerations: Object
+	considerations: Object,
+	medicalHistory: []
 });
 
 // Our user model
