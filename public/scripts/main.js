@@ -4,10 +4,15 @@ $(document).ready(function(){
 	var searchResults = $('#search-results');
 	var searchText = searchResults.html();
 	var search = Handlebars.compile(searchText);
-	
+
+	var symptomTemplate = $('#log-display');
+	var symptomText = symptomTemplate.html();
+	var symptomCompiled = Handlebars.compile(symptomText);
+
 	// Search for pets by name and display results
 	$('#searchForm').submit(function(e){
 		$('.search-results').empty();
+		$('.current-symptoms').empty();
 		e.preventDefault();
 		var petName = $(this).find($('#petBox')).val();
 		var ownerName = $(this).find($('#ownerBox')).val();
@@ -19,13 +24,23 @@ $(document).ready(function(){
 					
 					// Appends selected data to search results box.  Can create template for diff parts of page using diff data
 					$('.search-results').append(search(data[i]));
-				}	
+								// append pets medical history to page
+					for(var j = 0; j < data[i].medicalHistory.length; j++){
+
+						$('.current-symptoms').append(symptomCompiled(data[i].medicalHistory[j]));
+
+					}
+				}
 			}
 			else{
 				$('.search-results').append($('<div class="search-results">No Search Results Found!</div>'));
 				// $('#searchForm').find($('#searchBox')).val("");
 			}
+
+
+
 			$('#searchForm').find($('#searchBox')).val("");
+
 		});
 	});
 
@@ -45,18 +60,9 @@ $(document).ready(function(){
 			symptomLog.closest($('.symptom-log')).find($('.log-display')).empty();
 
 			for(var i =0; i < data.medicalHistory.length; i++){
-				var div = $('<div>');
-				var date = $('<p>' + data.medicalHistory[i]["date"] + '</p>');
-				var list = $('<ul class="list-unstyled">');
-				var symptom = $('<li><h4>' + data.medicalHistory[i]["symptom"] + '</h4></li>');
-				var description = $('<li><p>' + data.medicalHistory[i]["description"] + '</p></li>');
 
-				list.append(symptom);
-				list.append(description);
-				div.append(list);
-				div.append(date);
-				// console.log(list);			
-				symptomLog.closest($('.symptom-log')).find($('.log-display')).append(div);
+				symptomLog.closest($('.symptom-log')).find($('.log-display')).append(symptomCompiled(data.medicalHistory[i]));
+
 			}
 		});
 

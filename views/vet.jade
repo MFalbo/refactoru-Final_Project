@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	h1 Veterinarian Page
+	h1.information #{user.firstName} #{user.lastName}
 
 	.search.xs-6.pull-right
 		form#searchForm.navbar-form.navbar-left(role="search")
@@ -10,10 +10,6 @@ block content
 				input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
 				button#searchBtn.btn.btn-default(type="submit") Search
 		.search-results.xs-12
-
-	script#search-results(type="text/x-handlebars-template")
-		div
-			h4 {{name}}
-			p Age: {{age}}
-			p Breed: {{breed}}
-			p Owner: {{owner.firstName}} {{owner.lastName}}
+	.pet-medical.information
+		h2 Recent Symptoms Log
+		.current-symptoms

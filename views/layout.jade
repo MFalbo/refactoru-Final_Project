@@ -71,6 +71,20 @@ html(lang='en')
 							button.btn.btn-lg.btn-primary.btn-block(type="submit") Login
 					.modal-footer
 
+		//- Handlebars Templates
+		script#log-display(type="text/x-handlebars-template")
+			div
+				ul.list-unstyled
+					li: h4 {{symptom}}
+					li: p {{description}}
+					li: p {{date}}
+		script#search-results(type="text/x-handlebars-template")
+			div
+				h4 {{name}}
+				p Age: {{age}}
+				p Breed: {{breed}}
+				p Owner: {{owner.firstName}} {{owner.lastName}}
+
 		script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
 		script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js")
 		script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
