@@ -1,4 +1,10 @@
 $(document).ready(function(){
+
+	// compile Handlebars templates
+	var searchResults = $('#search-results');
+	var searchText = searchResults.html();
+	var search = Handlebars.compile(searchText);
+	
 	// Search for pets by name and display results
 	$('#searchForm').submit(function(e){
 		$('.search-results').empty();
@@ -7,19 +13,17 @@ $(document).ready(function(){
 		var ownerName = $(this).find($('#ownerBox')).val();
 		// console.log(searchTerm);
 		$.post('/veterinarian/search', {petName: petName, ownerName: ownerName}, function(data){
-			// console.log(data);
+			console.log(data);
 			if(data.length > 0){
 				for(var i =0; i<data.length; i++){
-					for(key in data[i]){
-						if(key.indexOf("_") === -1 && key !== "medicalHistory"){
-							$('.search-results').append($('<p>' + key + ': ' + data[i][key] + '</p>'));
-						}
-					}
+					
+					// Appends selected data to search results box.  Can create template for diff parts of page using diff data
+					$('.search-results').append(search(data[i]));
 				}	
 			}
 			else{
 				$('.search-results').append($('<div class="search-results">No Search Results Found!</div>'));
-				$('#searchForm').find($('#searchBox')).val("");
+				// $('#searchForm').find($('#searchBox')).val("");
 			}
 			$('#searchForm').find($('#searchBox')).val("");
 		});

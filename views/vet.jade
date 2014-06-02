@@ -10,3 +10,10 @@ block content
 				input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
 				button#searchBtn.btn.btn-default(type="submit") Search
 		.search-results.xs-12
+
+	script#search-results(type="text/x-handlebars-template")
+		div
+			h4 {{name}}
+			p Age: {{age}}
+			p Breed: {{breed}}
+			p Owner: {{owner.firstName}} {{owner.lastName}}
