@@ -21,7 +21,7 @@ block content
 				li
 					button.btn.btn-default(data-toggle="modal" data-target="#createpetModal") New Pet
 
-	.col-xs-12#pet-container
+	.col-xs-12.tabbable#pet-container
 		ul.nav.nav-tabs.nav-justified
 			for pet, index in user.pets
 				if index === 0
@@ -31,59 +31,74 @@ block content
 					li
 						a(href="#pet" + index data-toggle="tab") #{pet.name}
 
-			.tab-content
-				for pet, index in user.pets	
-					if index === 0
-						.tab-pane.fade.in.active(id="pet" + index)
-							.col-xs-12
-								ul.nav.nav-pills
-									li.active
-										a(href="#info") Info
-									li.dropdown
-										a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
-											span.caret
-										ul.dropdown-menu
-											li
-												a(href="#medical") History
-											li
-												a(href="#") Vaccination Records
-											li
-												a(href="#") Symptom Log
-								.tab-content
-									.tab-pane.fade.in.active#info(data-id= pet._id)
-										h2= pet.name
-										p Age: #{pet.age}
-										p Breed: #{pet.breed}
-									.tab-pane.fade#medical
-										p This would be medical history info
-					else
-						.tab-pane.fade(id="pet" + index)
-							.col-xs-12
-								ul.nav.nav-pills
-									li.active
-										a(href="#info") Info
-									li.dropdown
-										a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
-											span.caret
-										ul.dropdown-menu
-											li
-												a(href="#medical") History
-											li
-												a(href="#") Vaccination Records
-											li
-												a(href="#") Symptom Log
-								.tab-content
-									.tab-pane.fade.in.active#info(data-id= pet._id)
-										h2= pet.name
-										p Age: #{pet.age}
-										p Breed: #{pet.breed}
-									.tab-pane.fade#medical
-										p This would be medical history info
-			.symptom-log
-				form.symptom-form
-					input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
-					textarea.form-control(row="4")
-					button#symptomBtn.btn.btn-default(type="submit") Submit
+		.tab-content
+			for pet, index in user.pets	
+				if index === 0
+					.tab-pane.fade.in.active(id="pet" + index)
+						.col-xs-12.tabbable
+							ul.nav.nav-pills
+								li.active
+									a(href="#info" data-toggle="tab") Info
+								li.dropdown
+									a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
+										span.caret
+									ul.dropdown-menu
+										li
+											a(href="#history" + index data-toggle="tab") History
+										li
+											a(href="#vaccination-records" + index data-toggle="tab") Vaccination Records
+										li
+											a(href="#symptom-log" + index data-toggle="tab") Symptom Log
+							.tab-content
+								.tab-pane.fade.in.active#info(data-id= pet._id)
+									h2= pet.name
+									p Age: #{pet.age}
+									p Breed: #{pet.breed}
+								.tab-pane.fade(id= "history" + index)
+									p This would be medical history info for pet #{index}
+								.tab-pane.fade(id="vaccination-records" + index)
+									p This would be Vaccination Records for pet #{index}
+								.tab-pane.fade(id="symptom-log" + index)
+									.symptom-log.col-xs-6
+										h2 Symptom Log
+										form.symptom-form
+											input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
+											textarea.form-control(row="4")
+											button#symptomBtn.btn.btn-default(type="submit") Submit
+										.log-display
+				else
+					.tab-pane.fade(id="pet" + index)
+						.col-xs-12.tabbable
+							ul.nav.nav-pills
+								li.active
+									a(href="#info" data-toggle="tab") Info
+								li.dropdown
+									a.dropdown-toggle(href="#" data-toggle="dropdown") Medical
+										span.caret
+									ul.dropdown-menu
+										li
+											a(href="#history" + index data-toggle="tab") History
+										li
+											a(href="#vaccination-records" + index data-toggle="tab") Vaccination Records
+										li
+											a(href="#symptom-log" + index data-toggle="tab") Symptom Log
+							.tab-content
+								.tab-pane.fade.in.active#info(data-id= pet._id)
+									h2= pet.name
+									p Age: #{pet.age}
+									p Breed: #{pet.breed}
+								.tab-pane.fade(id= "history" + index)
+									p This would be medical history info for pet #{index}
+								.tab-pane.fade(id="vaccination-records" + index)
+									p This would be Vaccination Records for pet #{index}
+								.tab-pane.fade(id="symptom-log" + index)
+									.symptom-log.col-xs-6
+										h2 Symptom Log
+										form.symptom-form
+											input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
+											textarea.form-control(row="4")
+											button#symptomBtn.btn.btn-default(type="submit") Submit
+										.log-display
 
 	.modal.fade#createpetModal(tabindex="-1" role="dialog" aria-labeledby="createpetModalLabel" aria-hidden="true")
 			.modal-dialog
