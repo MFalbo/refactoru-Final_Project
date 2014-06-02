@@ -68,3 +68,11 @@ body{
 	background-color: #E7E7E7;
 	padding: 5px;
 }
+
+#petBox{
+	display: block;
+}
+
+#ownerBox{
+	display: block;
+}
