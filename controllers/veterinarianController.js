@@ -5,7 +5,7 @@ var User = require('../Models/user');
 module.exports = {
 	dashboard: function(req,res){
 		if(req.user.role === 'veterinarian' && req.params.userId === req.user.username){
-			res.render('vet', {user: req.user});	
+			res.render('vet', {loggedIn: !!req.user, user: req.user});	
 		}
 		else{
 			res.redirect('/access/denied');

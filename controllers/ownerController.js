@@ -9,7 +9,7 @@ module.exports = {
 			// console.log('user id', req.user._id);
 			User.findOne({_id : req.user._id}).populate('pets', null, 'pet').exec(function(err, user){
 				// console.log('populated user', user.pets);
-				res.render('owner', {user: user});
+				res.render('owner', {loggedIn: !!req.user, user: user});
 			})
 				
 		}

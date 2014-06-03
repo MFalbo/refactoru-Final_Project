@@ -21,12 +21,21 @@ html(lang='en')
 				#bs-example-navbar-collapse-1.collapse.navbar-collapse
 					block search
 					ul.nav.navbar-nav.navbar-right
-						li.active
-							button.btn.btn-default.navbar-btn(data-toggle="modal" data-target="#signinModal") Sign-In
-						li.active
-							button.btn.btn-default.navbar-btn(data-toggle="modal" data-target="#signupModal") Sign-Up
-						li.active
-							button.btn.btn-default.navbar-btn
+						if loggedIn
+							li
+								a(href="/owner/" + user.username) #{user.username}
+							li
+								//- button.btn.btn-default.navbar-btn
+								a(href="/auth/logout") Logout
+						else
+							li
+								//- button.btn.btn-default.navbar-btn(data-toggle="modal" data-target="#signinModal") Sign-In
+								a(href="#" data-toggle="modal" data-target="#signinModal") Sign-In
+							li
+								//- button.btn.btn-default.navbar-btn(data-toggle="modal" data-target="#signupModal") Sign-Up
+								a(href="#" data-toggle="modal" data-target="#signupModal") Sign-Up
+							li
+								//- button.btn.btn-default.navbar-btn
 								a(href="/auth/logout") Logout
 		.container
 			block content
