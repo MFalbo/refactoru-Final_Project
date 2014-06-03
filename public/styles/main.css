@@ -10,6 +10,11 @@ body{
 	padding-bottom: 70px;
 }
 
+/*.avatar{
+	max-width: 350px;
+	max-height: 350px;
+}*/
+
 .navbar-default{
 	border-radius: 0;
 }

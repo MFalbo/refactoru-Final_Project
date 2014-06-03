@@ -10,7 +10,7 @@ block content
 
 	.owner-info.col-xs-12
 		h1 #{user.firstName} #{user.lastName}
-		img.avatar.img-responsive.img-thumbnail.col-xs-3(src="http://placehold.it/350x350" alt="Avatar Image")
+		img.avatar.img-responsive.col-xs-3(src= 'http://localhost:3106/pictures/Funny.JPG' alt="Avatar Image")
 		.col-xs-9
 			ul.list-unstyled
 				li Name: 
@@ -54,6 +54,7 @@ block content
 									.col-xs-6
 										.data
 											h2= pet.name
+											img.img-responsive.avatar.pet-avatar(src= 'http://localhost:3106/pictures/' + pet.name + '.JPG')
 											p Age: #{pet.age}
 											p Breed: #{pet.breed}
 										.considerations
@@ -103,6 +104,7 @@ block content
 									.col-xs-6
 										.data
 											h2= pet.name
+											img.img-responsive.avatar.pet-avatar(src= 'http://localhost:3106/pictures/' + pet.name + '.JPG')
 											p Age: #{pet.age}
 											p Breed: #{pet.breed}
 										.considerations
