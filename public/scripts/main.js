@@ -17,12 +17,13 @@ $(document).ready(function(){
 	$('#searchForm').submit(function(e){
 		$('.search-results').empty();
 		$('.current-symptoms').empty();
+		$('.schedule-list').empty();
 		e.preventDefault();
 		var petName = $(this).find($('#petBox')).val();
 		var ownerName = $(this).find($('#ownerBox')).val();
 		// console.log(searchTerm);
 		$.post('/veterinarian/search', {petName: petName, ownerName: ownerName}, function(data){
-			console.log(data);
+			// console.log(data);
 			if(data.length > 0){
 				for(var i =0; i<data.length; i++){
 					
@@ -35,7 +36,7 @@ $(document).ready(function(){
 
 					}
 					for(var k = 0; k < data[i].schedule.length; k++){
-						$('.pet-schedule').append(schedCompiled(data[i].schedule[k]));
+						$('.schedule-list').append(schedCompiled(data[i].schedule[k]));
 					}
 				}
 			}
@@ -44,10 +45,10 @@ $(document).ready(function(){
 				// $('#searchForm').find($('#searchBox')).val("");
 			}
 
+			$('#searchForm').find($('#petBox')).val("");
+			$('#searchForm').find($('#ownerBox')).val("");
 
 
-
-			$('#searchForm').find($('#searchBox')).val("");
 
 		});
 	});
