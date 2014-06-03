@@ -1,4 +1,15 @@
 extends layout
 
 block content
-	h1 Sitter Page
+	h1.information #{user.firstName} #{user.lastName}
+
+	.search.col-xs-4
+		form#searchForm(role="search")
+			.form-group
+				input#petBox.form-control(type="text" placeholder="Pet's Name" required="")
+				input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
+				button#searchBtn.btn.btn-default(type="submit") Search
+		.search-results.xs-12
+	.pet-schedule.information.col-xs-8
+		h2 Daily Schedule
+		ul.list-unstyled.schedule-list

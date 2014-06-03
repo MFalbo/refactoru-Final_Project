@@ -34,12 +34,16 @@ $(document).ready(function(){
 						$('.current-symptoms').append(symptomCompiled(data[i].medicalHistory[j]));
 
 					}
+					for(var k = 0; k < data[i].schedule.length; k++){
+						$('.pet-schedule').append(schedCompiled(data[i].schedule[k]));
+					}
 				}
 			}
 			else{
 				$('.search-results').append($('<div class="search-results">No Search Results Found!</div>'));
 				// $('#searchForm').find($('#searchBox')).val("");
 			}
+
 
 
 
