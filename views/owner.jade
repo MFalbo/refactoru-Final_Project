@@ -10,7 +10,7 @@ block content
 
 	.owner-info.col-xs-12
 		h1 #{user.firstName} #{user.lastName}
-		img.avatar.img-responsive.col-xs-3(src= 'http://localhost:3106/pictures/Funny.JPG' alt="Avatar Image")
+		img.avatar.img-responsive.col-xs-3(src= '/pictures/Funny.JPG' alt="Avatar Image")
 		.col-xs-9
 			ul.list-unstyled
 				li Name: 
@@ -54,7 +54,7 @@ block content
 									.col-xs-6
 										.data
 											h2= pet.name
-											img.img-responsive.avatar.pet-avatar(src= 'http://localhost:3106/pictures/' + pet.name + '.JPG')
+											img.img-responsive.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
 											p Age: #{pet.age}
 											p Breed: #{pet.breed}
 										.considerations
@@ -110,7 +110,7 @@ block content
 									.col-xs-6
 										.data
 											h2= pet.name
-											img.img-responsive.avatar.pet-avatar(src= 'http://localhost:3106/pictures/' + pet.name + '.JPG')
+											img.img-responsive.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
 											p Age: #{pet.age}
 											p Breed: #{pet.breed}
 										.considerations

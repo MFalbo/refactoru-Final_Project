@@ -13,6 +13,17 @@ $(document).ready(function(){
 	var schedText = schedTemplate.html();
 	var schedCompiled = Handlebars.compile(schedText);
 
+	// Modal input autofocus
+	$('#signinModal').on('shown.bs.modal', function(){
+		$(this).find('input').first().focus();
+	});
+	$('#signupModal').on('shown.bs.modal', function(){
+		$(this).find('input').first().focus();
+	});
+	$('#createpetModal').on('shown.bs.modal', function(){
+		$(this).find('input').first().focus();
+	});
+
 	// Search for pets by name and display results
 	$('#searchForm').submit(function(e){
 		$('.search-results').empty();
