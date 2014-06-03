@@ -1,5 +1,11 @@
 module.exports = {
 	index: function(req, res) {
-		res.render('index');
+		console.log(req.user);
+		if(req.user !== undefined){
+			res.render('index', {loggedIn: !!req.user, user: req.user});
+		}
+		else{
+			res.render('index');
+		}
 	}
 }

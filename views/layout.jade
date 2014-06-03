@@ -23,7 +23,7 @@ html(lang='en')
 					ul.nav.navbar-nav.navbar-right
 						if loggedIn
 							li
-								a(href="/owner/" + user.username) #{user.username}
+								a(href="/" + user.role + "/" + user.username) #{user.username}
 							li
 								//- button.btn.btn-default.navbar-btn
 								a(href="/auth/logout") Logout
