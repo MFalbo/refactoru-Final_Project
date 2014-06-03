@@ -4,7 +4,8 @@ var User = require('../Models/user');
 
 module.exports = {
 	dashboard: function(req, res){
-		if(req.user.role === 'owner'){
+		console.log(req);
+		if(req.user.role === 'owner' && req.params.userId === req.user.username){
 			// console.log('user id', req.user._id);
 			User.findOne({_id : req.user._id}).populate('pets', null, 'pet').exec(function(err, user){
 				// console.log('populated user', user.pets);

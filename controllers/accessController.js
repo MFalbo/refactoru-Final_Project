@@ -3,6 +3,6 @@ module.exports = {
 		res.render('error');
 	},
 	denied: function(req, res){
-		res.render('error');
+		res.render('denied');
 	}
 }

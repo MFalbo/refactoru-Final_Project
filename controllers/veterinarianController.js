@@ -4,7 +4,7 @@ var User = require('../Models/user');
 
 module.exports = {
 	dashboard: function(req,res){
-		if(req.user.role === 'veterinarian'){
+		if(req.user.role === 'veterinarian' && req.params.userId === req.user.username){
 			res.render('vet', {user: req.user});	
 		}
 		else{
