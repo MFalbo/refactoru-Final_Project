@@ -29,5 +29,12 @@ module.exports = {
 			console.log(pet);
 			res.send(pet);
 		});
+	},
+	schedule: function(req, res){
+		Pet.findOneAndUpdate({_id: req.body._id.replace(/"/g, "")}, {$set: {schedule: req.body.schedule}}, function(err, pet){
+			console.log(err);
+			console.log(pet);
+			res.send(pet);
+		});
 	}
-}
+}//END MODULE EXPORTS

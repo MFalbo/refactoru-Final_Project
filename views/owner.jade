@@ -62,12 +62,13 @@ block content
 										h2 Daily Schedule
 										button.add-sched-item.btn.btn-default Create Schedule
 										form.form-horizontal.schedule-form(role="form")
-											input.form-control(name="time" type="text" placeholder="Time ##:##")
-											select.form-control(name="time-group" type="text")
-												option(value="AM") AM
-												option(value="PM") PM
+											input.form-control(name="time" type="time")
+											//- select.form-control(name="time-group" type="text")
+											//- 	option(value="AM") AM
+											//- 	option(value="PM") PM
 											input.form-control(name="activity" type="text" placeholder="Activity")
 											button.btn.btn-default.addItem Add Item
+											button.btn.btn-default.save-sched Save Schedule
 										ul.list-unstyled.schedule-list
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
@@ -110,12 +111,13 @@ block content
 										h2 Daily Schedule
 										button.add-sched-item.btn.btn-default Create Schedule
 										form.form-horizontal.schedule-form(role="form")
-											input.form-control(name="time" type="text" placeholder="Time ##:##")
-											select.form-control(name="time-group" type="text")
-												option(value="AM") AM
-												option(value="PM") PM
+											input.form-control(name="time" type="time")
+											//- select.form-control(name="time-group" type="text")
+											//- 	option(value="AM") AM
+											//- 	option(value="PM") PM
 											input.form-control(name="activity" type="text" placeholder="Activity")
 											button.btn.btn-default.addItem Add Item
+											button.btn.btn-default.save-sched Save Schedule
 										ul.list-unstyled.schedule-list
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}

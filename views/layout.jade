@@ -34,6 +34,7 @@ html(lang='en')
 			//- 	.container-fluid
 			//- 		p Footer Section
 
+		//- Modal Boxes
 		.modal.fade#signinModal(tabindex="-1" role="dialog" aria-labeledby="signinModalLabel" aria-hidden="true")
 			.modal-dialog
 				.modal-content
@@ -85,7 +86,7 @@ html(lang='en')
 				p Breed: {{breed}}
 				p Owner: {{owner.firstName}} {{owner.lastName}}
 		script#schedule-list(type="text/x-handlebars-template")
-			li {{time}}{{timeGroup}} | {{activity}}
+			li {{time}} | {{activity}}
 
 		script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
 		script(src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js")

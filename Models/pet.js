@@ -11,7 +11,7 @@ var petSchema = mongoose.Schema({
 	rabiesTag: String,
 	certifications: [String],
 	avatar: String,
-	schedule: Object,
+	schedule: [],
 	considerations: Object,
 	medicalHistory: []
 });

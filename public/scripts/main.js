@@ -74,6 +74,8 @@ $(document).ready(function(){
 		$(this).find($('textarea')).val("");
 	});
 
+
+// ---------------Pet Schedule Functions----------------
 	$('.add-sched-item').click(function(){
 		$(this).siblings('.schedule-form').slideToggle();
 	});
@@ -88,7 +90,6 @@ $(document).ready(function(){
 
 		var task = {
 			time: time,
-			timeGroup: timeGroup,
 			activity: activity
 		}
 
@@ -100,6 +101,35 @@ $(document).ready(function(){
 		}
 		$(this).closest($('.schedule-form')).find($('input[name="time"]')).val("");
 		$(this).closest($('form')).find($('input[name="activity"]')).val("");
-
 	});
-});
+
+	$(document).on('click', '.save-sched', function(e){
+		e.preventDefault();
+		var petId = $(this).closest($('.tab-content')).find($('.pet-id')).attr('data-id');
+		$.post('/owner/schedule', {_id: petId, schedule: petSchedule}, function(data){
+			console.log('sched post return:', data);
+		});
+	});
+}); //END OF DOCUMENT READY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

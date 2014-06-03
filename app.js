@@ -59,6 +59,7 @@ app.use(passportConfig.ensureAuthenticated);
 // Owner Role Routes
 app.get('/owner/:userId', ownerController.dashboard);
 app.post('/owner/log', ownerController.log);
+app.post('/owner/schedule', ownerController.schedule);
 
 // Sitter Role Routes
 app.get('/sitter/:userId', sitterController.dashboard);
