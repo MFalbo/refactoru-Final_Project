@@ -9,6 +9,10 @@ $(document).ready(function(){
 	var symptomText = symptomTemplate.html();
 	var symptomCompiled = Handlebars.compile(symptomText);
 
+	var schedTemplate = $('#schedule-list');
+	var schedText = schedTemplate.html();
+	var schedCompiled = Handlebars.compile(schedText);
+
 	// Search for pets by name and display results
 	$('#searchForm').submit(function(e){
 		$('.search-results').empty();
@@ -68,5 +72,34 @@ $(document).ready(function(){
 
 		$(this).find($('input')).val("");
 		$(this).find($('textarea')).val("");
+	});
+
+	$('.add-sched-item').click(function(){
+		$(this).siblings('.schedule-form').slideToggle();
+	});
+
+	var petSchedule = [];
+	$(document).on('click', '.addItem', function(e){
+		e.preventDefault();
+		$(this).closest($('.schedule-form')).siblings('.schedule-list').empty();
+		var time = $(this).closest($('.schedule-form')).find($('input[name="time"]')).val();
+		var timeGroup = $(this).closest($('form')).find($('select[name="time-group"]')).val();
+		var activity = $(this).closest($('form')).find($('input[name="activity"]')).val();
+
+		var task = {
+			time: time,
+			timeGroup: timeGroup,
+			activity: activity
+		}
+
+		petSchedule.push(task);
+		console.log(petSchedule);
+
+		for(var i = 0; i<petSchedule.length; i++){
+			$(this).closest($('.schedule-form')).siblings('.schedule-list').append(schedCompiled(petSchedule[i]));
+		}
+		$(this).closest($('.schedule-form')).find($('input[name="time"]')).val("");
+		$(this).closest($('form')).find($('input[name="activity"]')).val("");
+
 	});
 });

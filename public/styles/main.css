@@ -23,6 +23,7 @@ body{
 .information{
 	background-color: rgba(231,231,231,0.7);
 	border-radius: 5px;
+	padding: 5px;
 }
 
 .content div{
@@ -75,4 +76,8 @@ body{
 
 #ownerBox{
 	display: block;
+}
+
+.schedule-form{
+	display: none;
 }

@@ -60,10 +60,15 @@ block content
 											h2 Special Considerations
 									.col-xs-6.schedule-container
 										h2 Daily Schedule
-										button.add-sched-item.btn.btn-default Add Item
-										.schedule
-											ul
-												li Time : Activity
+										button.add-sched-item.btn.btn-default Create Schedule
+										form.form-horizontal.schedule-form(role="form")
+											input.form-control(name="time" type="text" placeholder="Time ##:##")
+											select.form-control(name="time-group" type="text")
+												option(value="AM") AM
+												option(value="PM") PM
+											input.form-control(name="activity" type="text" placeholder="Activity")
+											button.btn.btn-default.addItem Add Item
+										ul.list-unstyled.schedule-list
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
@@ -103,10 +108,15 @@ block content
 											h2 Special Considerations
 									.col-xs-6.schedule-container
 										h2 Daily Schedule
-										button.add-sched-item.btn.btn-default Add Item
-										.schedule
-											ul
-												li Time : Activity
+										button.add-sched-item.btn.btn-default Create Schedule
+										form.form-horizontal.schedule-form(role="form")
+											input.form-control(name="time" type="text" placeholder="Time ##:##")
+											select.form-control(name="time-group" type="text")
+												option(value="AM") AM
+												option(value="PM") PM
+											input.form-control(name="activity" type="text" placeholder="Activity")
+											button.btn.btn-default.addItem Add Item
+										ul.list-unstyled.schedule-list
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
