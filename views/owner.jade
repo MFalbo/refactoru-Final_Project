@@ -71,6 +71,8 @@ block content
 											button.btn.btn-default.addItem Add Item
 											button.btn.btn-default.save-sched Save Schedule
 										ul.list-unstyled.schedule-list
+											for task in pet.schedule
+												li= task.time + " | " + task.activity
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
@@ -83,6 +85,10 @@ block content
 											textarea.form-control(row="4")
 											button#symptomBtn.btn.btn-default(type="submit") Submit
 										.log-display.col-xs-6
+											for item in pet.medicalHistory
+												li: h4= item.symptom
+												li: p= item.description
+												li: p= item.date
 				else
 					.tab-pane.fade(id="pet" + index)
 						.col-xs-12.tabbable.information
@@ -121,6 +127,8 @@ block content
 											button.btn.btn-default.addItem Add Item
 											button.btn.btn-default.save-sched Save Schedule
 										ul.list-unstyled.schedule-list
+											for task in pet.schedule
+												li= task.time + " | " + task.activity
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
@@ -133,6 +141,10 @@ block content
 											textarea.form-control(row="4")
 											button#symptomBtn.btn.btn-default(type="submit") Submit
 										.log-display.col-xs-6
+											for item in pet.medicalHistory
+												li: h4= item.symptom
+												li: p= item.description
+												li: p= item.date
 
 	.modal.fade#createpetModal(tabindex="-1" role="dialog" aria-labeledby="createpetModalLabel" aria-hidden="true")
 			.modal-dialog
