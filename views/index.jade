@@ -1,44 +1,36 @@
 extends layout
+
 block links
 	link(type="text/css" rel="stylesheet" href="/styles/cover.css")
+
 block content
-	//- .content.col-xs-12
-	//- 	div.first.col-xs-12.jumbotron
-	//- 		p Pet Owner Dashboard Content Section
-	//- 		img.img-responsive(src="http://placehold.it/350x150")
-	//- 	div.second.col-xs-12.jumbotron
-	//- 		img.img-responsive(src="http://placehold.it/350x150")
-	//- 		p  Vet Interaction Section
-	//- 	div.third.col-xs-12.jumbotron
-	//- 		p Pet Sitter Content Section
-	//- 		img.img-responsive(src="http://placehold.it/350x150")
-	//- 	div.fourth.col-xs-12.jumbotron
-	//- 		img.img-responsive(src="http://placehold.it/350x150")
-	//- 		p Fourth Content Section
 
 	.site-wrapper
-
 		.site-wrapper-inner
-
 			.cover-container
+				.carousel.slide#carousel(data-ride="carousel")
+					//- ol.carousel-indicators
+					//- 	li.active(data-target="#carousel" data-slide-to="0")
+					//- 	li(data-target="#carousel" data-slide-to="1")
+					//- 	li(data-target="#carousel" data-slide-to="2")
+					.carousel-inner
+						.item.active
+							.inner.cover
+								h1.cover-heading Consolidate all of your pet information
+								p.lead Centralize all of the information for all of your pets.  No more digging through old files and stacks of paper.
+								//- p.lead
+						.item
+							.inner.cover
+								h1.cover-heading Improved veterinary care
+								p.lead Track what's happening to your pet and when, and let your vet get up to speed at the click of a button.
+								//- p.lead
+						.item
+							.inner.cover
+								h1.cover-heading Know your pets are well cared for when you have to be away
+								p.lead Make sure your pet sitter always has the proper information to care for your pets.  Let them keep you up to date on everything that's happening back at home.
+								//- p.lead
 
-				//- .masthead.clearfix
-				//- 	.inner
-				//- 		h3.masthead-brand Cover
-				//- 		ul.nav.masthead-nav
-				//- 			li.active: a(href="#") Home
-				//- 			li: a(href="#") Features
-				//- 			li: a(href="#") Contact
-
-				.inner.cover
-					h1.cover-heading Cover your page.
-					p.lead Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.
-					p.lead
-						a.btn.btn-lg.btn-default(href="#") Learn more
-
-				//- .mastfoot
-				//- 	.inner
-				//- 		p Cover template for 
-				//- 			a(href="http://getbootstrap.com") Bootstrap
-				//- 			, by
-				//- 			a(href="https://twitter.com/mdo")@mdo.
+					//- a.left.carousel-control(href="#carousel" data-slide="prev")
+					//- 	span.glyphicon.glyphicon-chevron-left
+					//- a.right.carousel-control(href="#carousel" data-slide="next")
+					//- 	span.glyphicon.glyphicon-chevron-right
