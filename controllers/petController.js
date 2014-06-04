@@ -19,18 +19,18 @@ module.exports = {
 		});
 
 		pet.save(function(err, pet){
-			console.log(pet);
+			// console.log(pet);
 			if(err) return console.error(err);
 
 			User.update({_id : req.user._id} , {$push: { pets : pet._id}}, function(err, user){
-				console.log('user id',req.user._id);
-				console.log('pet id', pet._id);
+				// console.log('user id',req.user._id);
+				// console.log('pet id', pet._id);
 				res.redirect('/owner/' + req.user.username);
 			});
 		});
 
-		console.log('req.user', req.user);
-		console.log('req.body', req.body);
+		// console.log('req.user', req.user);
+		// console.log('req.body', req.body);
 		// res.send(req.body);
 	}
 }

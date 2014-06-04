@@ -26,15 +26,15 @@ module.exports = {
 		};
 
 		Pet.findOneAndUpdate({_id: req.body._id.replace(/"/g, "")}, {$push: {medicalHistory: logObject}}, {safe: true, upsert: true}, function(err, pet){
-			console.log(err);
-			console.log(pet);
+			// console.log(err);
+			// console.log(pet);
 			res.send(pet);
 		});
 	},
 	schedule: function(req, res){
 		Pet.findOneAndUpdate({_id: req.body._id.replace(/"/g, "")}, {$set: {schedule: req.body.schedule}}, function(err, pet){
-			console.log(err);
-			console.log(pet);
+			// console.log(err);
+			// console.log(pet);
 			res.send(pet);
 		});
 	}

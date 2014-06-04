@@ -10,25 +10,30 @@ body{
 	padding-bottom: 70px;
 }
 
-/*.avatar{
+.avatar{
 	max-width: 350px;
 	max-height: 350px;
-}*/
+}
 
 .navbar-default{
 	border-radius: 0;
 }
 
 .owner-info{
-	border: 1px solid #000;
+	/*border: 1px solid #000;*/
 	border-radius: 5px;
 	background-color: rgba(231,231,231,0.7);
 	padding: 5px;
 }
 
+#pet-container{
+	padding: 0;
+	margin-top: 10px;
+}
+
 .information{
 	background-color: rgba(231,231,231,0.7);
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	padding: 5px;
 }
 
@@ -87,3 +92,48 @@ body{
 .schedule-form{
 	display: none;
 }
+
+.panel{
+	padding: 0;
+}
+
+.pet-tab a{
+	color: #FFF;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+.indented{
+	text-indent: 25px;
+}
+
+.italics{
+	font-style: italic;
+}
+.log-display{
+	margin-top: -20px;
+
+}
+.log-display ul{
+	background-color: #FFF;
+}
+
+/*.data-left,.data-right{
+	display: inline-block;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

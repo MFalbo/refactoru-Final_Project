@@ -9,8 +9,10 @@ block search
 block content
 
 	.owner-info.col-xs-12
+
 		h1 #{user.firstName} #{user.lastName}
-		img.avatar.img-responsive.col-xs-3(src= '/pictures/Funny.JPG' alt="Avatar Image")
+		.col-xs-3
+			img.avatar.img-responsive.img-rounded(src= '/pictures/Funny.JPG' alt="Avatar Image")
 		.col-xs-9
 			ul.list-unstyled
 				li Name: 
@@ -51,44 +53,53 @@ block content
 											a(href="#symptom-log" + index data-toggle="tab") Symptom Log
 							.tab-content
 								.tab-pane.fade.in.active.pet-id(id="info" + index data-id= pet._id)
-									.col-xs-6
+									.col-sm-6
 										.data
 											h2= pet.name
-											img.img-responsive.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
+											img.img-responsive.img-rounded.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
 											p Age: #{pet.age}
 											p Breed: #{pet.breed}
-										.considerations
-											h2 Special Considerations
-									.col-xs-6.schedule-container
-										h2 Daily Schedule
-										button.add-sched-item.btn.btn-default Create Schedule
-										form.form-horizontal.schedule-form(role="form")
-											input.form-control(name="time" type="time")
-											//- select.form-control(name="time-group" type="text")
-											//- 	option(value="AM") AM
-											//- 	option(value="PM") PM
-											input.form-control(name="activity" type="text" placeholder="Activity")
-											button.btn.btn-default.addItem Add Item
-											button.btn.btn-default.save-sched Save Schedule
-										ul.list-unstyled.schedule-list
-											for task in pet.schedule
-												li= task.time + " | " + task.activity
+										.considerations.panel.panel-default
+											.panel-heading
+												h2.panel-title Special Considerations
+											.panel-body
+									.col-sm-6.schedule-container.panel.panel-info
+										.panel-heading
+											h2.panel-title Daily Schedule
+										.panel-body
+											button.add-sched-item.btn.btn-info Create Schedule
+											form.form-horizontal.schedule-form(role="form")
+												input.form-control(name="time" type="time")
+												//- select.form-control(name="time-group" type="text")
+												//- 	option(value="AM") AM
+												//- 	option(value="PM") PM
+												input.form-control(name="activity" type="text" placeholder="Activity")
+												button.btn.btn-primary.addItem Add Item
+												button.btn.btn-success.save-sched Save Schedule
+											ul.list-unstyled.schedule-list
+												for task in pet.schedule
+													li= task.time + " | " + task.activity
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
 									p This would be Vaccination Records for pet #{index}
 								.tab-pane.fade(id="symptom-log" + index)
-									.symptom-log
-										h2 Symptom Log
-										form.symptom-form.col-xs-6
-											input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
-											textarea.form-control(row="4")
-											button#symptomBtn.btn.btn-default(type="submit") Submit
-										.log-display.col-xs-6
+									.symptom-log.panel.panel-warning.col-xs-6
+										.panel-heading
+											h2 Symptom Log
+										.panel-body
+											form.symptom-form
+												input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
+												textarea.form-control(row="4")
+												button#symptomBtn.btn.btn-default(type="submit") Submit
+									.log-display.col-xs-6
+										ul.list-unstyled
 											for item in pet.medicalHistory
-												li: h4= item.symptom
-												li: p= item.description
-												li: p= item.date
+												li
+													h3.bg-warning= item.symptom
+													p.indented.italics.text-muted= item.date
+												li: p.indented= 	item.description
+
 				else
 					.tab-pane.fade(id="pet" + index)
 						.col-xs-12.tabbable.information
@@ -107,44 +118,51 @@ block content
 											a(href="#symptom-log" + index data-toggle="tab") Symptom Log
 							.tab-content
 								.tab-pane.fade.in.active.pet-id(id="info" + index data-id= pet._id)
-									.col-xs-6
-										.data
-											h2= pet.name
-											img.img-responsive.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
-											p Age: #{pet.age}
-											p Breed: #{pet.breed}
-										.considerations
-											h2 Special Considerations
-									.col-xs-6.schedule-container
-										h2 Daily Schedule
-										button.add-sched-item.btn.btn-default Create Schedule
-										form.form-horizontal.schedule-form(role="form")
-											input.form-control(name="time" type="time")
-											//- select.form-control(name="time-group" type="text")
-											//- 	option(value="AM") AM
-											//- 	option(value="PM") PM
-											input.form-control(name="activity" type="text" placeholder="Activity")
-											button.btn.btn-default.addItem Add Item
-											button.btn.btn-default.save-sched Save Schedule
-										ul.list-unstyled.schedule-list
-											for task in pet.schedule
-												li= task.time + " | " + task.activity
+									.col-sm-6
+										h2= pet.name
+										img.img-responsive.img-rounded.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
+										p Age: #{pet.age}
+										p Breed: #{pet.breed}
+										.considerations.panel.panel-default
+											.panel-heading
+												h2.panel-title Special Considerations
+											.panel-body
+									.col-sm-6.schedule-container.panel.panel-info
+										.panel-heading
+											h2.panel-title Daily Schedule
+										.panel-body
+											button.add-sched-item.btn.btn-default Create Schedule
+											form.form-horizontal.schedule-form(role="form")
+												input.form-control(name="time" type="time")
+												//- select.form-control(name="time-group" type="text")
+												//- 	option(value="AM") AM
+												//- 	option(value="PM") PM
+												input.form-control(name="activity" type="text" placeholder="Activity")
+												button.btn.btn-default.addItem Add Item
+												button.btn.btn-default.save-sched Save Schedule
+											ul.list-unstyled.schedule-list
+												for task in pet.schedule
+													li= task.time + " | " + task.activity
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
 									p This would be Vaccination Records for pet #{index}
 								.tab-pane.fade(id="symptom-log" + index)
-									.symptom-log
-										h2 Symptom Log
-										form.symptom-form.col-xs-6
-											input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
-											textarea.form-control(row="4")
-											button#symptomBtn.btn.btn-default(type="submit") Submit
-										.log-display.col-xs-6
+									.symptom-log.panel.panel-warning.col-xs-6
+										.panel-heading
+											h2.panel-title Symptom Log
+										.panel-body
+											form.symptom-form
+												input.form-control(type="text" name="symptom" placeholder="Enter Symptom" required="")
+												textarea.form-control(row="4")
+												button#symptomBtn.btn.btn-default(type="submit") Submit
+									.log-display.col-xs-6
+										ul.list-unstyled
 											for item in pet.medicalHistory
-												li: h4= item.symptom
-												li: p= item.description
-												li: p= item.date
+												li
+													h3.bg-warning= item.symptom
+													p.indented.italics.text-muted= item.date
+												li: p.indented= 	item.description
 
 	.modal.fade#createpetModal(tabindex="-1" role="dialog" aria-labeledby="createpetModalLabel" aria-hidden="true")
 			.modal-dialog

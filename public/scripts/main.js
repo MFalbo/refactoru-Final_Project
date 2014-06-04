@@ -81,7 +81,7 @@ $(document).ready(function(){
 
 			for(var i =0; i < data.medicalHistory.length; i++){
 
-				symptomLog.closest($('.symptom-log')).find($('.log-display')).append(symptomCompiled(data.medicalHistory[i]));
+				symptomLog.closest($('.symptom-log')).find($('.log-display ul')).append(symptomCompiled(data.medicalHistory[i]));
 
 			}
 		});
