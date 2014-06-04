@@ -22,7 +22,7 @@ var Pet = require('./Models/pet');
 var User = require('./Models/user');
 
 // ------------------------------------Connect Mongoose to Project Database--------------------------
-mongoose.connect(process.env.MONGOHQ || 'mongodb://localhost/betterPets');
+mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/betterPets');
 
 var app = express();
 app.set('view engine', 'jade');
