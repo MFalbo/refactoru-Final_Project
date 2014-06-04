@@ -1,16 +1,45 @@
 extends layout
 
 block content
-	h1.information #{user.firstName} #{user.lastName}
+	.col-xs-12
+		ul.nav.nav-tabs
+			li.active
+				a(href="#info" data-toggle="tab") Info
+			li
+				a(href="#appt" data-toggle="tab") Appointment
+		.tab-content
+			.tab-pane.fade.in.active#info
+				h1.text-center #{user.firstName} #{user.lastName}
+					.col-sm-6
+						.col-xs-12
+							.col-xs-6
+								img.img-responsive(src="http://thesimplephysicist.com/wp-content/uploads/2014/05/default-avatar.jpg")
+							.col-xs-6.information
+								p Vet Info
+						.col-xs-12
+							.col-xs-12.panel.panel-default
+								.panel-heading
+									p.panel-title Emails
+								.panel-body
+					.col-sm-6
+						.col-xs-12.panel.panel-default
+							.panel-heading
+								p.panel-title Today's Appts
+							.panel-body
+						.col-xs-12.panel.panel-default
+							.panel-heading
+								p.panel-title Follow-Up Items
+							.panel-body
 
-	.search.col-xs-4
-		form#searchForm(role="search")
-			.form-group
-				input#petBox.form-control(type="text" placeholder="Pet's Name" required="")
-				input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
-				button#searchBtn.btn.btn-default(type="submit") Search 
-					span.glyphicon.glyphicon-search
-		.search-results.xs-12
-	.pet-medical.information.col-xs-8
-		h2 Recent Symptoms Log
-		.current-symptoms
+			.tab-pane.fade#appt
+				.search.col-xs-4
+					form#searchForm(role="search")
+						.form-group
+							input#petBox.form-control(type="text" placeholder="Pet's Name" required="")
+							input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
+							button#searchBtn.btn.btn-default(type="submit") Search 
+								span.glyphicon.glyphicon-search
+					.search-results.xs-12
+				.pet-medical.information.col-xs-8
+					h2 Recent Symptoms Log
+					.current-symptoms

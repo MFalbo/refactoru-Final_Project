@@ -1,19 +1,19 @@
 extends layout
 
-block search
-	form.navbar-form.navbar-left(role="search")
-		.form-group
-			input.form-control(type="text" placeholder="Search")
-			button.btn.btn-default(type="submit") Submit
+//- block search
+//- 	form.navbar-form.navbar-left(role="search")
+//- 		.form-group
+//- 			input.form-control(type="text" placeholder="Search")
+//- 			button.btn.btn-default(type="submit") Submit
 			
 block content
 
 	.owner-info.col-xs-12
 
 		h1 #{user.firstName} #{user.lastName}
-		.col-xs-3
+		.col-xs-4
 			img.avatar.img-responsive.img-rounded(src= '/pictures/Funny.JPG' alt="Avatar Image")
-		.col-xs-9
+		.col-xs-4
 			ul.list-unstyled
 				li Name: 
 					strong #{user.firstName} #{user.lastName}
@@ -22,9 +22,19 @@ block content
 				li Phone:
 				li
 					button.btn.btn-default(data-toggle="modal" data-target="#createpetModal") New Pet
-
+		.col-xs-4
+			h2 Search for vets or pet sitters
+			.panel.panel-info
+				.panel-heading
+					form(role="search")
+						.input-group
+							input.form-control(type="text" placeholder="Search")
+							span.input-group-btn: button.btn.btn-default(type="submit"): span.glyphicon.glyphicon-search
+				.search-display.panel-body
+					.panel-title Results
+				
 	.col-xs-12.tabbable#pet-container
-		ul.nav.nav-tabs.nav-justified
+		
 			for pet, index in user.pets
 				if index === 0
 					li.active.pet-tab
@@ -54,11 +64,10 @@ block content
 							.tab-content
 								.tab-pane.fade.in.active.pet-id(id="info" + index data-id= pet._id)
 									.col-sm-6
-										.data
-											h2= pet.name
-											img.img-responsive.img-rounded.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
-											p Age: #{pet.age}
-											p Breed: #{pet.breed}
+										h2= pet.name
+										img.img-responsive.img-rounded.avatar.pet-avatar(src= '/pictures/' + pet.name + '.JPG' alt="Your Pet's Picture Here")
+										p Age: #{pet.age}
+										p Breed: #{pet.breed}
 										.considerations.panel.panel-default
 											.panel-heading
 												h2.panel-title Special Considerations
