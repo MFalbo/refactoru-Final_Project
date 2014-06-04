@@ -25,10 +25,10 @@ block content
 		ul.nav.nav-tabs.nav-justified
 			for pet, index in user.pets
 				if index === 0
-					li.active
+					li.active.pet-tab
 						a(href="#pet" + index data-toggle="tab") #{pet.name}
 				else
-					li
+					li.pet-tab
 						a(href="#pet" + index data-toggle="tab") #{pet.name}
 
 		.tab-content

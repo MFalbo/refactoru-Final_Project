@@ -22,7 +22,7 @@ body{
 .owner-info{
 	border: 1px solid #000;
 	border-radius: 5px;
-	background-color: #E7E7E7;
+	background-color: rgba(231,231,231,0.7);
 	padding: 5px;
 }
 

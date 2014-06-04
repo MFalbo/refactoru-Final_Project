@@ -126,6 +126,25 @@ $(document).ready(function(){
 			console.log('sched post return:', data);
 		});
 	});
+
+	$(document).on('click', '.pet-tab', function(){
+		var petId = $(this).find('a').attr('href');
+		// console.log(petId.toString());
+		var petImg = $(petId).find('.pet-avatar').attr('src');
+		// console.log(petImg);
+		// $(petId).load(function(){
+		// 	$('body').css('background', 'url(' + petImg + ') no-repeat center center fixed').css('background-size', 'cover');
+		// 	// console.log('error');
+		// 	// $('body').css('background', '');
+		// });
+		// $('body').css('background', '');
+		$('body').css('background', 'url(' + petImg + ') no-repeat center center fixed, url("http://www.photographybyrichelle.net/wp-content/uploads/2013/07/pet-background1.jpg") no-repeat center center fixed').css('background-size', 'cover');
+	});
+
+	$(document).on('error', 'img', function(){
+		console.log($(this))
+		$(this).attr('src', 'http://www.triblocal.com/wp-content/uploads/avatars/22273/8abdab589727ffa8c272d1b380abe8bb-bpfull.jpg');
+	});
 }); //END OF DOCUMENT READY
 
 
