@@ -86,11 +86,10 @@ html(lang='en')
 
 		//- Handlebars Templates
 		script#log-display(type="text/x-handlebars-template")
-			div
-				ul.list-unstyled
-					li: h4 {{symptom}}
-					li: p {{description}}
-					li: p {{date}}
+			li
+				h3.bg-warning {{symptom}}
+				p.indented.italics.text-muted {{description}}
+			li: p.indented {{date}}
 		script#search-results(type="text/x-handlebars-template")
 			div
 				h4 {{name}}

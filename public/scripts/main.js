@@ -77,11 +77,11 @@ $(document).ready(function(){
 
 		$.post('/owner/log', {symptom: symptom, description: description, date: date, _id: petId}, function(data){
 			// console.log("response: ", data);
-			symptomLog.closest($('.symptom-log')).find($('.log-display')).empty();
+			symptomLog.closest($('.tab-pane')).find($('.log-display ul')).empty();
 
 			for(var i =0; i < data.medicalHistory.length; i++){
 
-				symptomLog.closest($('.symptom-log')).find($('.log-display ul')).append(symptomCompiled(data.medicalHistory[i]));
+				symptomLog.closest($('.tab-pane')).find($('.log-display ul')).append(symptomCompiled(data.medicalHistory[i]));
 
 			}
 		});
