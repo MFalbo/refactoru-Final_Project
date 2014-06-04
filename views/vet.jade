@@ -32,14 +32,42 @@ block content
 							.panel-body
 
 			.tab-pane.fade#appt
-				.search.col-xs-4
-					form#searchForm(role="search")
-						.form-group
-							input#petBox.form-control(type="text" placeholder="Pet's Name" required="")
-							input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
-							button#searchBtn.btn.btn-default(type="submit") Search 
-								span.glyphicon.glyphicon-search
-					.search-results.xs-12
-				.pet-medical.information.col-xs-8
-					h2 Recent Symptoms Log
-					.current-symptoms
+				.col-sm-6
+					.search.col-xs-10
+						h3 Find Pet Information
+						form#searchForm(role="search")
+							.form-group
+								input#petBox.form-control(type="text" placeholder="Pet's Name" required="")
+								input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
+								button#searchBtn.btn.btn-default(type="submit") Search 
+									span.glyphicon.glyphicon-search
+						.search-results.xs-12
+					.observations.col-xs-10
+						.panel.panel-default
+							.panel-heading
+								.panel-title Appointment Notes
+							.panel-body
+								button.btn.btn-default#new-session Create New Session
+								p This will be a form for the vet to enter all relevent medical information relating to this appointment.
+
+					
+				.col-sm-6
+					.col-xs-12.medical-history
+						.panel.panel-default
+							.panel-heading
+								.panel-title Medical medical-history
+							.panel-body
+					.pet-medical.col-xs-12
+						.panel.panel-default
+							.panel-heading
+								.panel-title Recent Symptoms
+							.panel-body
+								ul.current-symptoms.list-unstyled
+
+
+
+
+
+
+
+
