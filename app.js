@@ -22,7 +22,7 @@ var Pet = require('./Models/pet');
 var User = require('./Models/user');
 
 // ------------------------------------Connect Mongoose to Project Database--------------------------
-mongoose.connect('mongodb://localhost/betterPets');
+mongoose.connect(process.env.MONGOHQ || 'mongodb://localhost/betterPets');
 
 var app = express();
 app.set('view engine', 'jade');
@@ -69,6 +69,6 @@ app.get('/veterinarian/:userId', veterinarianController.dashboard);
 app.post('/veterinarian/search', veterinarianController.search);
 
 // -----------------------------------------Establish Server Port-----------------------------------------
-var server = app.listen(3106, function() {
+var server = app.listen(process.env.PORT || 3106, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
