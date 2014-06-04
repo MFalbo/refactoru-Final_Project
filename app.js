@@ -9,13 +9,13 @@ var passport = require('passport');
 passportConfig = require('./config/passport');
 
 // -------------------------------------Require all Route Controllers--------------------------------
-var indexController = require('./Controllers/indexController.js');
-var authenticationController = require('./Controllers/authenticationController');
-var ownerController = require('./Controllers/ownerController');
-var veterinarianController = require('./Controllers/veterinarianController');
-var sitterController = require('./Controllers/sitterController');
-var accessController = require('./Controllers/accessController');
-var petController = require('./Controllers/petController');
+var indexController = require('./controllers/indexController.js');
+var authenticationController = require('./controllers/authenticationController');
+var ownerController = require('./controllers/ownerController');
+var veterinarianController = require('./controllers/veterinarianController');
+var sitterController = require('./controllers/sitterController');
+var accessController = require('./controllers/accessController');
+var petController = require('./controllers/petController');
 
 // --------------------------------------------Require Models-----------------------------------------------
 var Pet = require('./Models/pet');
