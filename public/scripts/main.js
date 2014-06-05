@@ -24,6 +24,11 @@ $(document).ready(function(){
 		$(this).find('input').first().focus();
 	});
 
+	// Main Page Carousel Control
+	$('.carousel').carousel({
+		interval: 10000
+	});
+
 	// Search for pets by name and display results
 	$('#searchForm').submit(function(e){
 		$('.search-results').empty();

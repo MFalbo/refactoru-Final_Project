@@ -9,14 +9,15 @@ block content
 				a(href="#appt" data-toggle="tab") Appointment
 		.tab-content
 			.tab-pane.fade.in.active#info
-				h1.text-center #{user.firstName} #{user.lastName}
+					.col-xs-12
+						h1.text-center.username #{user.firstName} #{user.lastName}
 					.col-sm-6
 						.col-xs-12
 							.col-xs-6
 								img.img-responsive(src="http://thesimplephysicist.com/wp-content/uploads/2014/05/default-avatar.jpg")
 							.col-xs-6.information
 								p Vet Info
-						.col-xs-12
+						.col-xs-12.margin-top
 							.col-xs-12.panel.panel-default
 								.panel-heading
 									p.panel-title Emails
@@ -32,16 +33,19 @@ block content
 							.panel-body
 
 			.tab-pane.fade#appt
-				.col-sm-6
+				.col-sm-6.margin-top
 					.search.col-xs-10
-						h3 Find Pet Information
-						form#searchForm(role="search")
-							.form-group
-								input#petBox.form-control(type="text" placeholder="Pet's Name" required="")
-								input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
-								button#searchBtn.btn.btn-default(type="submit") Search 
-									span.glyphicon.glyphicon-search
-						.search-results.xs-12
+						.panel.panel-default
+							.panel-heading
+								.panel-title Find Pet Information
+							.panel-body
+								form#searchForm(role="search")
+									.form-group
+										input#petBox.form-control(type="text" placeholder="Pet's Name" required="")
+										input#ownerBox.form-control(type="text" placeholder="Owner's Last Name" required="")
+										button#searchBtn.btn.btn-default(type="submit") Search 
+											span.glyphicon.glyphicon-search
+								.search-results.xs-12
 					.observations.col-xs-10
 						.panel.panel-default
 							.panel-heading
@@ -51,7 +55,7 @@ block content
 								p This will be a form for the vet to enter all relevent medical information relating to this appointment.
 
 					
-				.col-sm-6
+				.col-sm-6.margin-top
 					.col-xs-12.medical-history
 						.panel.panel-default
 							.panel-heading

@@ -19,9 +19,13 @@ body{
 	border-radius: 0;
 }
 
+.nav-tabs li a, .username{
+	color: #FFF;
+}
+
 .owner-info{
 	/*border: 1px solid #000;*/
-	border-radius: 5px;
+	border-radius: 5px 5px 0 0;
 	background-color: rgba(231,231,231,0.7);
 	padding: 5px;
 }
@@ -40,45 +44,6 @@ body{
 .content div{
 	border-radius: 10px;
 	box-shadow: 0px 0px 15px #888;
-}
-
-.first{
-	background-color: #E5FEFE;
-}
-
-.first *{
-	float: right;
-}
-
-.second{
-	background-color: #CBFDFE;
-}
-
-.third{
-	background-color: #5F9EA0;
-}
-
-.third *{
-	float: right;
-}
-
-.fourth{
-	background-color: #426E6F;
-}
-
-.footer{
-	background-color: #A1A1A1;
-}
-
-/*.tab-pane{
-	color: #FFF;
-}*/
-
-.search{
-	border: 1px solid #000;
-	border-radius: 5px;
-	background-color: #E7E7E7;
-	padding: 5px;
 }
 
 #petBox{
@@ -110,14 +75,17 @@ body{
 .italics{
 	font-style: italic;
 }
-.log-display{
-	margin-top: -20px;
 
-}
-.log-display ul{
-	background-color: #FFF;
+.margin-top{
+	margin-top: 20px;
 }
 
+.sitter-head{
+	color: #3c763d;
+	background-color: #9ed588;
+	border-color: #d6e9c6;
+	border-radius: 4px;
+}
 
 
 
