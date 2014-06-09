@@ -36,9 +36,7 @@ html(lang='en')
 							li
 								//- button.btn.btn-default.navbar-btn(data-toggle="modal" data-target="#signupModal") Sign-Up
 								a(href="#" data-toggle="modal" data-target="#signupModal") Sign-Up
-							//- li
-							//- 	//- button.btn.btn-default.navbar-btn
-							//- 	a(href="/auth/logout") Logout
+							
 		.container
 			block content
 			//- footer.navbar-fixed-bottom
@@ -73,7 +71,7 @@ html(lang='en')
 							input.form-control(type="text" name="firstName" placeholder="First Name" required="" autofocus="autofocus")
 							input.form-control(type="text" name="lastName" placeholder="Last Name" required="")
 							input.form-control(type="text" name="username" placeholder="User Name" required="")
-							input.form-control(type="text" name="email" placeholder="Email" required="")
+							input.form-control(type="email" name="email" placeholder="Email" required="")
 							select.form-control(name="role" required="")
 								option(value="owner") Owner
 								option(value="sitter") Pet Sitter

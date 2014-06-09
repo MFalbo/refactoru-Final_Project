@@ -37,5 +37,12 @@ module.exports = {
 			// console.log(pet);
 			res.send(pet);
 		});
+	},
+	search: function(req, res){
+		console.log('owner search body', req.body);
+		User.find({lastName: req.body.search}, function(err, doc){
+			res.send(doc);
+
+		})
 	}
 }//END MODULE EXPORTS

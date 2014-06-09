@@ -13,6 +13,7 @@ block content
 		h1 #{user.firstName} #{user.lastName}
 		.col-xs-4
 			img.avatar.img-responsive.img-rounded(src= 'http://thesimplephysicist.com/wp-content/uploads/2014/05/default-avatar.jpg' alt="Avatar Image")
+			//- input(type="file")
 		.col-xs-4
 			ul.list-unstyled
 				li Name: 
@@ -26,12 +27,13 @@ block content
 			h2 Search for vets or pet sitters
 			.panel.panel-info
 				.panel-heading
-					form(role="search")
+					form.owner-search(role="search")
 						.input-group
-							input.form-control(type="text" placeholder="Search")
+							input.form-control(type="text" placeholder="Last Name")
 							span.input-group-btn: button.btn.btn-default(type="submit"): span.glyphicon.glyphicon-search
-				.search-display.panel-body
-					.panel-title Results
+				.panel-body
+					.panel-title: strong Results
+					.search-display
 				
 	.col-xs-12.tabbable#pet-container
 		ul.list-unstyled.nav.nav-tabs

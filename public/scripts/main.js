@@ -69,6 +69,20 @@ $(document).ready(function(){
 		});
 	});
 
+	// Owner search for vets and sitters
+	$('.owner-search').submit(function(){
+		$('.search-display').empty();
+		console.log('owner search submitted');
+		var searchTerm = $(this).find('input').val();
+		console.log(searchTerm);
+		$.post('/owner/search', {search: searchTerm}, function(data){
+			console.log('owner search AJAX response', data);
+			$('.search-display').append('<p>' + data[0].firstName + '</p>' + " " + '<p>' + data[0].lastName + '</p>');
+		});
+		$(this).find('input').val("");
+		return false;
+	});
+
 	// Add symptoms to pet's medicalHistory and display them in pane
 	$('.symptom-form').submit(function(e){
 		e.preventDefault();
