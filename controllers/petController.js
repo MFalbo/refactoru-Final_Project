@@ -32,5 +32,17 @@ module.exports = {
 		// console.log('req.user', req.user);
 		// console.log('req.body', req.body);
 		// res.send(req.body);
+	},
+	delete: function(req, res){
+		console.log("connection to server side of /pet/delete when remove pet button clicked");
+		console.log("ID of 'deleted' pet", req.body._id);
+		User.findOneAndUpdate({"username": req.user.username}, {$pull: {pets: req.body._id}}, function(err, owner){
+			console.log('owner\'s pets', owner.pets);
+
+		});
+
+		Pet.remove({_id: req.body._id.replace(/"/g, "")}, function(err, pet){
+			res.send('response from /pet/delete', pet);
+		});
 	}
 }

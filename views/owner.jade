@@ -1,10 +1,4 @@
 extends layout
-
-//- block search
-//- 	form.navbar-form.navbar-left(role="search")
-//- 		.form-group
-//- 			input.form-control(type="text" placeholder="Search")
-//- 			button.btn.btn-default(type="submit") Submit
 			
 block content
 
@@ -88,6 +82,7 @@ block content
 											ul.list-unstyled.schedule-list
 												for task in pet.schedule
 													li= task.time + " | " + task.activity
+									button.btn.btn-danger.delete-pet Remove Pet
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)
@@ -155,6 +150,7 @@ block content
 											ul.list-unstyled.schedule-list
 												for task in pet.schedule
 													li= task.time + " | " + task.activity
+									button.btn.btn-danger.delete-pet Remove Pet
 								.tab-pane.fade(id= "history" + index)
 									p This would be medical history info for pet #{index}
 								.tab-pane.fade(id="vaccination-records" + index)

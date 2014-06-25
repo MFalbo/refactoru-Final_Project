@@ -146,6 +146,7 @@ $(document).ready(function(){
 		});
 	});
 
+	// Change background to image of current pet
 	$(document).on('click', '.pet-tab', function(){
 		var petId = $(this).find('a').attr('href');
 		// console.log(petId.toString());
@@ -163,6 +164,15 @@ $(document).ready(function(){
 	$(document).on('error', 'img', function(){
 		console.log($(this))
 		$(this).attr('src', 'http://www.triblocal.com/wp-content/uploads/avatars/22273/8abdab589727ffa8c272d1b380abe8bb-bpfull.jpg');
+	});
+
+	// Delete Pet
+	$('.delete-pet').click(function(){
+		var pet_Id = $(this).closest('.tab-pane').attr('data-id');
+		console.log("delete pet ID: ", pet_Id);
+		$.post('/pet/delete', {_id: pet_Id}, function(data){
+			console.log("info from server on pet delete ", data);
+		})
 	});
 }); //END OF DOCUMENT READY
 

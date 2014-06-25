@@ -16,7 +16,7 @@ var petSchema = mongoose.Schema({
 	medicalHistory: []
 });
 
-// Our user model
+// Our pet model
 var Pet = mongoose.model('pet', petSchema);
 
 module.exports = Pet;

@@ -48,6 +48,7 @@ app.get('/auth/logout', authenticationController.logout);
 
 // All Pet Routes
 app.post('/pet/create', petController.create);
+app.post('/pet/delete', petController.delete);
 
 // Access Error/Denial Routes
 app.get('/access/error', accessController.error);
